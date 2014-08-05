@@ -365,7 +365,7 @@
   register: s3_one_time_url
 
 - name: download from one time url
-  get_url: 
+  get_url:
     url="{{ s3_one_time_url.url }}"
     dest="{{ edxapp_data_dir }}/{{ EDXAPP_XML_S3_KEY|basename }}"
     mode=0600
