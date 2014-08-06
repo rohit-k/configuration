@@ -33,7 +33,7 @@
 
 - name: erase edx-platform directory to clone from a new fork
   file: src={{ edxapp_code_dir }} state=absent
-  only_if: git_remote_show_origin not {{ COMMON_GIT_ACCOUNT }}
+  when: git_remote_show_origin =! {{ COMMON_GIT_ACCOUNT }}
 
 - name: checkout edx-platform repo into {{edxapp_code_dir}}
   git: >
