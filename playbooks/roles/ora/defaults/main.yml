@@ -12,7 +12,7 @@ ora_venv_bin: "{{ ora_venv_dir }}/bin"
 ora_user: "ora"
 ora_deploy_path: "{{ ora_venv_bin }}:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
 
-ora_source_repo: https://github.com/edx/edx-ora.git
+ora_source_repo: https://{{ COMMON_GIT_MIRROR }}/{{ COMMON_GIT_ACCOUNT }}/edx-ora.git
 ora_version: 'master'
 ora_pre_requirements_file: "{{ ora_code_dir }}/pre-requirements.txt"
 ora_post_requirements_file: "{{ ora_code_dir }}/requirements.txt"
