@@ -28,12 +28,12 @@
 
 # Do A Checkout
 - name: register github account
-  shell: git remote show origin | grep 'Fetch URL:' | awk '{ print $3 }' | sed 's/https\?:\/\/github.com\///' | sed 's/\/edx-platform.git//'
+  shell: cd {{ edxapp_code_dir }} && git remote show origin | grep 'Fetch URL:' | awk '{ print $3 }' | sed 's/https\?:\/\/github.com\///' | sed 's/\/edx-platform.git//'
   register: git_remote_show_origin
 
 - name: erase edx-platform directory to clone from a new fork
   file: src={{ edxapp_code_dir }} state=absent
-  when: git_remote_show_origin not {{ COMMON_GIT_ACCOUNT }}
+  only_if: git_remote_show_origin not {{ COMMON_GIT_ACCOUNT }}
 
 - name: checkout edx-platform repo into {{edxapp_code_dir}}
   git: >
