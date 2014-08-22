@@ -11,6 +11,8 @@ vagrant/*/devstack/cs_comments_service
 vagrant/*/devstack/ora
 vagrant_ansible_inventory_default
 
+playbooks/group_vars/all
+
 ### OS X artifacts
 *.DS_Store
 .AppleDouble
